@@ -1,7 +1,7 @@
 # @aflansburg/terminal-ui
 
 [![Test](https://github.com/aflansburg/terminal-ui/actions/workflows/test.yml/badge.svg)](https://github.com/aflansburg/terminal-ui/actions/workflows/test.yml)
-[![npm version](https://badge.fury.io/js/@aflansburg%2Fterminal-ui.svg)](https://www.npmjs.com/package/@aflansburg/terminal-ui)
+[![npm version](https://img.shields.io/badge/npm-%40aflansburg%2Fterminal-ui?style=flat&logo=npm&logoColor=%23CB3837&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40aflansburg%2Fterminal-ui)](https://www.npmjs.com/package/@aflansburg/terminal-ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A terminal-themed, sci-fi styled UI component library for Svelte 5. Features CRT screen effects, matrix-style animations, and cyberpunk aesthetics.
