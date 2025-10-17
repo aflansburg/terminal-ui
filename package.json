@@ -1,6 +1,6 @@
 {
 	"name": "@aflansburg/terminal-ui",
-	"version": "0.1.3",
+	"version": "0.2.0",
 	"description": "Terminal-themed sci-fi UI component library for Svelte 5 with CRT effects, matrix animations, and cyberpunk aesthetics",
 	"type": "module",
 	"svelte": "./src/index.js",
