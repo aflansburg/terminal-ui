@@ -184,13 +184,36 @@ A full-screen terminal boot sequence animation that displays system initializati
 
 #### MatrixLyrics
 
+A Matrix-style animated text overlay that displays lyrics or text in cascading or straight-line modes with glitch effects.
+
 ```svelte
 <script>
   import { MatrixLyrics } from '@aflansburg/terminal-ui';
+
+  let showLyrics = $state(true);
+  const songLyrics = "Wake up Neo The Matrix has you Follow the white rabbit";
 </script>
 
-<MatrixLyrics />
+<MatrixLyrics
+  isActive={showLyrics}
+  lyrics={songLyrics}
+  mode="matrix"
+/>
+
+<!-- Or use straight mode for centered scrolling text -->
+<MatrixLyrics
+  isActive={showLyrics}
+  lyrics={songLyrics}
+  mode="straight"
+/>
 ```
+
+**Props:**
+- `isActive?: boolean` - Whether to show the lyrics overlay (default: false)
+- `lyrics?: string` - Space-separated lyrics text to display (default: "")
+- `mode?: "matrix" | "straight"` - Display mode:
+  - `"matrix"`: Words cascade down in columns Matrix-style
+  - `"straight"`: Words scroll down centered in a single line (default: "matrix")
 
 ### Icons
 
