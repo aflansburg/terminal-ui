@@ -1,0 +1,76 @@
+{
+	"name": "@aflansburg/terminal-ui",
+	"version": "0.1.0",
+	"description": "Terminal-themed sci-fi UI component library for Svelte 5 with CRT effects, matrix animations, and cyberpunk aesthetics",
+	"type": "module",
+	"svelte": "./src/index.js",
+	"exports": {
+		".": {
+			"types": "./src/index.d.ts",
+			"svelte": "./src/index.js"
+		},
+		"./styles": "./src/styles/terminal-theme.css",
+		"./theme": "./src/theme/index.js"
+	},
+	"files": [
+		"src",
+		"README.md",
+		"LICENSE",
+		"CHANGELOG.md"
+	],
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:ui": "vitest --ui",
+		"test:coverage": "vitest run --coverage",
+		"prepublishOnly": "npm run test && node -e \"const fs=require('fs');const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));if(!pkg.name||!pkg.version||!pkg.description){console.error('Missing required package.json fields');process.exit(1)}if(!fs.existsSync('README.md')){console.error('README.md not found');process.exit(1)}if(!fs.existsSync('LICENSE')){console.error('LICENSE not found');process.exit(1)}console.log('✓ Package validation passed')\"",
+		"version:patch": "npm version patch -m \"chore: release v%s\"",
+		"version:minor": "npm version minor -m \"chore: release v%s\"",
+		"version:major": "npm version major -m \"chore: release v%s\"",
+		"postversion": "git push && git push --tags"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aflansburg/terminal-ui.git"
+	},
+	"bugs": {
+		"url": "https://github.com/aflansburg/terminal-ui/issues"
+	},
+	"homepage": "https://github.com/aflansburg/terminal-ui#readme",
+	"peerDependencies": {
+		"svelte": "^5.0.0",
+		"tailwindcss": "^4.0.0"
+	},
+	"peerDependenciesMeta": {
+		"tailwindcss": {
+			"optional": true
+		}
+	},
+	"keywords": [
+		"svelte",
+		"svelte5",
+		"terminal",
+		"sci-fi",
+		"cyberpunk",
+		"components",
+		"ui",
+		"crt",
+		"retro",
+		"matrix",
+		"glitch",
+		"terminal-ui"
+	],
+	"author": {
+		"name": "Abram Flansburg",
+		"url": "https://github.com/aflansburg"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@sveltejs/vite-plugin-svelte": "^6.2.1",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/svelte": "^5.2.8",
+		"jsdom": "^27.0.0",
+		"vite": "^7.1.10",
+		"vitest": "^3.2.4"
+	}
+}
