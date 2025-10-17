@@ -1,6 +1,7 @@
 # @aflansburg/terminal-ui
 
 [![Test](https://github.com/aflansburg/terminal-ui/actions/workflows/test.yml/badge.svg)](https://github.com/aflansburg/terminal-ui/actions/workflows/test.yml)
+[![Deployment](https://github.com/aflansburg/terminal-ui/actions/workflows/publish.yml/badge.svg)](https://github.com/aflansburg/terminal-ui/actions/workflows/publish.yml)
 [![npm version](https://img.shields.io/badge/npm-%40aflansburg%2Fterminal-ui?style=flat&logo=npm&logoColor=%23CB3837&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40aflansburg%2Fterminal-ui)](https://www.npmjs.com/package/@aflansburg/terminal-ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
