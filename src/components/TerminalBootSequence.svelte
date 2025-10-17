@@ -1,9 +1,45 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { weirdWord } from '$lib/stores/weirdWord.svelte';
-	import { bootSequenceStore } from '$lib/stores/bootSequenceStore.svelte';
 
-	let showBootSequence = $state(bootSequenceStore.shouldShowBootSequence);
+	/**
+	 * Props for the TerminalBootSequence component
+	 */
+	interface Props {
+		/**
+		 * Whether to show the boot sequence
+		 * @default true
+		 */
+		shouldShow?: boolean;
+		/**
+		 * System designation text to display in the boot sequence
+		 * @default 'UNKNOWN'
+		 */
+		systemDesignation?: string;
+		/**
+		 * Callback fired when the boot sequence completes
+		 */
+		onComplete?: () => void;
+		/**
+		 * Delay between each line in milliseconds
+		 * @default 200
+		 */
+		lineDelay?: number;
+		/**
+		 * Delay before hiding the boot sequence after completion in milliseconds
+		 * @default 2000
+		 */
+		completeDelay?: number;
+	}
+
+	let {
+		shouldShow = true,
+		systemDesignation = 'UNKNOWN',
+		onComplete,
+		lineDelay = 200,
+		completeDelay = 2000
+	}: Props = $props();
+
+	let showBootSequence = $state(shouldShow);
 	let bootLines = $state<string[]>([]);
 	let currentLine = $state(0);
 
@@ -15,7 +51,7 @@
 		'[  0.456789] Rick & Morty character API online... OK',
 		'[  0.567890] Portal gun targeting system... CALIBRATED',
 		'[  0.678901] Weird word generator... INITIALIZED',
-		`[  0.789012] System designation: ${$weirdWord}`,
+		`[  0.789012] System designation: ${systemDesignation}`,
 		'[  0.890123] Pattern recognition modules... LOADED',
 		'[  0.901234] Engineering humor database... READY',
 		'[  1.012345] Autism-positive language pack... ACTIVE',
@@ -40,11 +76,13 @@
 				clearInterval(interval);
 				setTimeout(() => {
 					showBootSequence = false;
-					// Mark as viewed so it won't show again
-					bootSequenceStore.markAsViewed();
-				}, 2000);
+					// Call completion callback if provided
+					if (onComplete) {
+						onComplete();
+					}
+				}, completeDelay);
 			}
-		}, 200);
+		}, lineDelay);
 
 		return () => clearInterval(interval);
 	});

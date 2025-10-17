@@ -1,6 +1,17 @@
 <script lang="ts">
-	import { colorMode } from '$lib/stores/sitePreferences.svelte';
-	export let className = '';
+	interface Props {
+		/**
+		 * Additional CSS classes to apply to the icon
+		 */
+		className?: string;
+		/**
+		 * Fill color for the icon
+		 * @default '#0077B7' (LinkedIn blue)
+		 */
+		fill?: string;
+	}
+
+	let { className = '', fill = '#0077B7' }: Props = $props();
 </script>
 
 <svg
@@ -8,7 +19,7 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	viewBox="0 0 382 382"
 	class={`h-6 w-6 ${className} transition-colors duration-200 hover:fill-blue-700`}
-	fill={$colorMode === 'dark' ? '#ffffff' : '#0077B7'}
+	fill={fill}
 >
 	<path
 		d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889

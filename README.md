@@ -156,6 +156,8 @@ Or import it in your Svelte layout:
 
 #### TerminalBootSequence
 
+A full-screen terminal boot sequence animation that displays system initialization messages.
+
 ```svelte
 <script>
   import { TerminalBootSequence } from '@aflansburg/terminal-ui';
@@ -164,10 +166,21 @@ Or import it in your Svelte layout:
 </script>
 
 <TerminalBootSequence
-  visible={showBoot}
-  onComplete={() => showBoot = false}
+  shouldShow={showBoot}
+  systemDesignation="ALPHA-7"
+  onComplete={() => {
+    showBoot = false;
+    console.log('Boot sequence complete!');
+  }}
 />
 ```
+
+**Props:**
+- `shouldShow?: boolean` - Whether to show the boot sequence (default: true)
+- `systemDesignation?: string` - System designation text displayed in the sequence (default: 'UNKNOWN')
+- `onComplete?: () => void` - Callback fired when the boot sequence completes
+- `lineDelay?: number` - Delay between each line in milliseconds (default: 200)
+- `completeDelay?: number` - Delay before hiding after completion in milliseconds (default: 2000)
 
 #### MatrixLyrics
 
@@ -197,8 +210,15 @@ All icons are exported and can be used directly:
 </script>
 
 <GitHubIcon />
+<GitHubIcon fill="#00ff41" className="w-8 h-8" />
+<LinkedInIcon fill="#ffffff" />
 <MenuIcon />
 ```
+
+**Icon Props:**
+All icons accept the following props:
+- `className?: string` - Additional CSS classes
+- `fill?: string` - Fill color (each icon has a sensible default)
 
 **Available Sample Icons:**
 - `MenuIcon` - Hamburger menu

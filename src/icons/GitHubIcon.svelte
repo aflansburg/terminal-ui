@@ -1,13 +1,24 @@
 <script lang="ts">
-	import { colorMode } from '$lib/stores/sitePreferences.svelte';
-	export let className = '';
+	interface Props {
+		/**
+		 * Additional CSS classes to apply to the icon
+		 */
+		className?: string;
+		/**
+		 * Fill color for the icon
+		 * @default '#ffffff'
+		 */
+		fill?: string;
+	}
+
+	let { className = '', fill = '#ffffff' }: Props = $props();
 </script>
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 24 24"
 	class={`h-6 w-6 ${className} transition-colors duration-200 hover:fill-violet-700`}
-	fill="#ffffff"
+	fill={fill}
 >
 	<path
 		fill-rule="evenodd"
